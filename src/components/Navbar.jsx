@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, t, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,10 +16,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Why Us', href: '#whyus' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('navbar.home'), href: '#home' },
+    { name: t('navbar.services'), href: '#services' },
+    { name: t('navbar.about'), href: '#whyus' },
+    { name: t('navbar.contact'), href: '#contact' },
   ];
 
   return (
@@ -38,21 +40,35 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="text-white px-4 py-2 rounded-lg border border-white/30 hover:bg-white/10 transition-colors duration-200 font-medium"
+            >
+              {language === 'en' ? 'ID' : 'EN'}
+            </button>
             <a
               href="#contact"
               className="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-orange-700 transition-colors duration-200"
             >
-              Get a Quote
+              {language === 'en' ? 'Get a Quote' : 'Dapatkan Penawaran'}
             </a>
           </div>
 
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="text-white px-3 py-1 rounded border border-white/30 hover:bg-white/10 transition-colors font-medium"
+            >
+              {language === 'en' ? 'ID' : 'EN'}
+            </button>
+            <button
+              className="text-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (
@@ -73,7 +89,7 @@ const Navbar = () => {
                 className="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-700 transition-colors duration-200 text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Get a Quote
+                {language === 'en' ? 'Get a Quote' : 'Dapatkan Penawaran'}
               </a>
             </div>
           </div>

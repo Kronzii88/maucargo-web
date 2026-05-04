@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import AOS from "aos";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -29,25 +30,29 @@ function App() {
   }
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>MAUCargo - Your Trusted Export-Import Forwarding Partner</title>
-        <meta
-          name="description"
-          content="PT Mega Anugrah Utama (MAUCargo) provides tailored, reliable, and cost-effective export-import solutions across land, sea, and air."
-        />
-      </Helmet>
-      <div className="min-h-screen">
-        <Navbar />
-        <main>
-          <Hero />
-          <Services />
-          <WhyChooseUs />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </HelmetProvider>
+    <LanguageProvider>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            MAUCargo - Your Trusted Export-Import Forwarding Partner
+          </title>
+          <meta
+            name="description"
+            content="PT Mega Anugrah Utama (MAUCargo) provides tailored, reliable, and cost-effective export-import solutions across land, sea, and air."
+          />
+        </Helmet>
+        <div className="min-h-screen">
+          <Navbar />
+          <main>
+            <Hero />
+            <Services />
+            <WhyChooseUs />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </HelmetProvider>
+    </LanguageProvider>
   );
 }
 

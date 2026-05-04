@@ -1,85 +1,150 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Phone, Mail, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      // Replace this URL with your Google Apps Script web app URL
+      const GOOGLE_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbzPd2c-NgTtOe6jSDm3wy_QtP7eqjQqL-DJTzWFxwg1sSUqTuiCDmH4Hm2qtmTWFALY/exec";
+
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("message", formData.message);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formDataToSend,
+      });
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      console.error(err.stack);
+      setError(t("contact.error") || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-neutral">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div data-aos="fade-up" className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
-            Contact Us
+            {t("contact.title")}
           </h2>
+          <p className="text-gray-600">{t("contact.subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div data-aos="fade-right">
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <form className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
-                    placeholder="Your Name"
-                  />
+              {isSubmitted ? (
+                <div className="text-center py-12">
+                  <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-navy mb-2">
+                    {t("contact.successTitle") || "Message Sent!"}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t("contact.successMessage") ||
+                      "Thank you for your message. We will get back to you soon!"}
+                  </p>
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <div className="bg-red-50 text-red-600 px-4 py-3 rounded-lg">
+                      {error}
+                    </div>
+                  )}
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      {t("contact.name")}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                      placeholder={t("contact.name")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      {t("contact.email")}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                      placeholder={t("contact.email")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      {t("contact.message")}
+                    </label>
+                    <textarea
+                      id="message"
+                      rows="4"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
+                      placeholder={t("contact.message")}
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Service Needed
-                  </label>
-                  <select
-                    id="service"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
-                  >
-                    <option>Air Freight</option>
-                    <option>Ocean Freight</option>
-                    <option>LCL (Less Container Load)</option>
-                    <option>Courier</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows="4"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
-                    placeholder="Your message..."
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200"
-                >
-                  Send Message
-                </button>
-              </form>
+                    {isSubmitting
+                      ? t("contact.sending") || "Sending..."
+                      : t("contact.send")}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 
@@ -89,11 +154,13 @@ const Contact = () => {
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <MapPin
                     className="w-6 h-6 text-accent"
-                    aria-label="Address"
+                    aria-label={t("contact.info.address")}
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-navy mb-1">Address</h3>
+                  <h3 className="text-lg font-bold text-navy mb-1">
+                    {t("contact.info.address")}
+                  </h3>
                   <a
                     href="https://maps.google.com/?q=Jl.+Catelya+Garden+No.+15+Banyumanik,+Semarang,+Central+Java+Indonesia"
                     target="_blank"
@@ -108,20 +175,30 @@ const Contact = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-accent" aria-label="Phone" />
+                  <Phone
+                    className="w-6 h-6 text-accent"
+                    aria-label={t("contact.info.phone")}
+                  />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-navy mb-1">Phone</h3>
+                  <h3 className="text-lg font-bold text-navy mb-1">
+                    {t("contact.info.phone")}
+                  </h3>
                   <p className="text-gray-600">+62 21 1234 5678</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-accent" aria-label="Email" />
+                  <Mail
+                    className="w-6 h-6 text-accent"
+                    aria-label={t("contact.info.email")}
+                  />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-navy mb-1">Email</h3>
+                  <h3 className="text-lg font-bold text-navy mb-1">
+                    {t("contact.info.email")}
+                  </h3>
                   <a
                     href="mailto:inquiry@maucargo.com"
                     className="text-gray-600 hover:text-accent transition-colors"

@@ -8,8 +8,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const badgeRef = useRef(null);
   const h1Ref = useRef(null);
   const aboutTextRef = useRef(null);
@@ -233,42 +235,39 @@ const Hero = () => {
               className="inline-block mb-6 px-4 py-2 bg-accent/20 rounded-full"
             >
               <span className="text-accent font-semibold text-sm">
-                PT Mega Anugrah Utama
+                {t("hero.badge")}
               </span>
             </div>
             <h1
               ref={h1Ref}
               className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
             >
-              Your Trusted Partner in Global Logistics & Forwarding
+              {t("hero.title")}
             </h1>
             <p
               ref={aboutTextRef}
               className="text-lg text-gray-300 mb-8 leading-relaxed"
             >
-              We provide tailored, reliable, and cost-effective export-import
-              solutions. With extensive experience in the forwarding industry,
-              we ensure your cargo reaches its destination safely and on
-              time—whether across land, sea, or air.
+              {t("hero.description")}
             </p>
             <div
               ref={trustRef}
               className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10"
             >
               <span className="text-gray-300 font-medium flex items-center gap-2">
-                ✓ Global Network
+                ✓ {t("hero.trust1")}
               </span>
               <span className="text-gray-300 font-medium flex items-center gap-2">
                 •
               </span>
               <span className="text-gray-300 font-medium flex items-center gap-2">
-                ✓ Secure Handling
+                ✓ {t("hero.trust2")}
               </span>
               <span className="text-gray-300 font-medium flex items-center gap-2">
                 •
               </span>
               <span className="text-gray-300 font-medium flex items-center gap-2">
-                ✓ Cost-Effective
+                ✓ {t("hero.trust3")}
               </span>
             </div>
             <div ref={ctaRef}>
@@ -279,7 +278,7 @@ const Hero = () => {
                 className="bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center lg:justify-start gap-2 w-full sm:w-auto"
               >
                 <MessageCircle size={24} aria-label="WhatsApp Icon" />
-                Chat via WhatsApp
+                {t("hero.cta")}
               </a>
             </div>
           </div>
