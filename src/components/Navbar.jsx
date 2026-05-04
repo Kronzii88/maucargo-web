@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../assets/MAU BULAT.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,8 +27,11 @@ const Navbar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-navy/95 shadow-lg backdrop-blur-sm' : 'bg-navy'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-2xl font-bold text-white">
-            MAU<span className="text-accent">Cargo</span>
+          <a href="#home" className="flex items-center gap-3">
+            <img src={logo} alt="MAU Cargo" className="h-10 w-10 object-contain" />
+            <span className="text-2xl font-bold text-white">
+              MAU<span className="text-accent">Cargo</span>
+            </span>
           </a>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -48,7 +52,7 @@ const Navbar = () => {
             </button>
             <a
               href="#contact"
-              className="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-orange-700 transition-colors duration-200"
+              className="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-accentDark transition-colors duration-200"
             >
               {language === 'en' ? 'Get a Quote' : 'Dapatkan Penawaran'}
             </a>
@@ -86,7 +90,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                className="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-700 transition-colors duration-200 text-center"
+                className="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accentDark transition-colors duration-200 text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {language === 'en' ? 'Get a Quote' : 'Dapatkan Penawaran'}

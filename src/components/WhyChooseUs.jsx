@@ -1,5 +1,6 @@
 import { Clock, Truck, Globe, Headphones } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import bgImage from "../assets/7.jpg";
 
 const WhyChooseUs = () => {
   const { t } = useLanguage();
@@ -16,8 +17,7 @@ const WhyChooseUs = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1600&q=80)",
+          backgroundImage: `url(${bgImage})`,
         }}
       >
         <div className="absolute inset-0 bg-navy/80"></div>

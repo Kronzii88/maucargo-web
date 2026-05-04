@@ -9,6 +9,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { useLanguage } from "../contexts/LanguageContext";
+import warehouseImage from "../assets/7.jpg";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -203,7 +204,7 @@ const Hero = () => {
       alt: "Air Freight",
     },
     {
-      url: "https://images.unsplash.com/photo-1586528116311-ad8c738759be?auto=format&fit=crop&w=800&q=80",
+      url: warehouseImage,
       alt: "Warehouse/LCL",
     },
     {
@@ -275,7 +276,7 @@ const Hero = () => {
                 href="https://wa.me/6281234567890?text=Hello%20MAUCargo,%20I%20am%20interested%20in%20your%20forwarding%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center lg:justify-start gap-2 w-full sm:w-auto"
+                className="bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accentDark transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center lg:justify-start gap-2 w-full sm:w-auto"
               >
                 <MessageCircle size={24} aria-label="WhatsApp Icon" />
                 {t("hero.cta")}

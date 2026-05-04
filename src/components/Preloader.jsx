@@ -66,14 +66,14 @@ const Preloader = ({ onComplete }) => {
     <div
       ref={preloaderRef}
       className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{ backgroundColor: "#0F172A" }}
+      style={{ backgroundColor: "#062A5C" }}
     >
       <div
         ref={glowRef}
         className="pointer-events-none fixed w-64 h-64 rounded-full opacity-20"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,165,0,0.6) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(47,143,212,0.55) 0%, transparent 70%)",
           transform: "translate(-50%, -50%)",
         }}
       />
