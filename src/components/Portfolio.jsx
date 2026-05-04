@@ -6,7 +6,7 @@ import industrialImage from "../assets/7.jpg";
 import ProjectModal from "./ProjectModal";
 
 const Portfolio = () => {
-  const { language, toggleLanguage } = useLanguage();
+  const { language } = useLanguage();
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const statsSectionRef = useRef(null);
   const counterRefs = useRef([]);
@@ -21,7 +21,6 @@ const Portfolio = () => {
         en: "Proof of performance across ocean, air, and multi-modal shipments. Built for reliability, speed, and clear end-to-end execution.",
         id: "Bukti performa pengiriman laut, udara, dan multi-moda. Dibangun untuk keandalan, kecepatan, dan eksekusi ujung-ke-ujung yang jelas.",
       },
-      toggle: { en: "EN", id: "ID" },
       viewDetails: { en: "View Details", id: "Lihat Detail" },
       kpis: [
         {
@@ -29,7 +28,10 @@ const Portfolio = () => {
           suffix: "+",
           decimals: 0,
           title: { en: "Containers Shipped", id: "Kontainer Terkirim" },
-          label: { en: "Yearly Ocean Freight Volume", id: "Volume Tahunan Ocean Freight" },
+          label: {
+            en: "Yearly Ocean Freight Volume",
+            id: "Volume Tahunan Ocean Freight",
+          },
         },
         {
           value: 150,
@@ -82,7 +84,8 @@ const Portfolio = () => {
       {
         id: "industrial",
         cover: industrialImage,
-        coverAlt: "MAUCargo Success Story - Industrial Machinery Export to Germany",
+        coverAlt:
+          "MAUCargo Success Story - Industrial Machinery Export to Germany",
         gallery: [
           {
             src: industrialImage,
@@ -138,7 +141,8 @@ const Portfolio = () => {
       },
       {
         id: "technology",
-        cover: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
+        cover:
+          "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
         coverAlt: "MAUCargo Success Story - Tech Component Import from China",
         gallery: [
           {
@@ -195,7 +199,8 @@ const Portfolio = () => {
       },
       {
         id: "sme",
-        cover: "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=900&q=80",
+        cover:
+          "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=900&q=80",
         coverAlt: "MAUCargo Success Story - FMCG Distribution to Middle East",
         gallery: [
           {
@@ -313,42 +318,13 @@ const Portfolio = () => {
     <>
       <section id="portfolio" className="py-20 bg-neutral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex items-start justify-between gap-6 mb-10">
-            <div data-aos="fade-up" className="text-center sm:text-left w-full">
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy">
-                {copy.title[activeLanguage]}
-              </h2>
-              <p className="text-gray-600 max-w-3xl mt-3">
-                {copy.subtitle[activeLanguage]}
-              </p>
-            </div>
-
-            <div className="shrink-0">
-              <div className="inline-flex rounded-xl border border-gray-200 bg-white p-1 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (language !== "en") {
-                      toggleLanguage();
-                    }
-                  }}
-                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${activeLanguage === "en" ? "bg-navy text-white" : "text-navy hover:bg-gray-50"}`}
-                >
-                  EN
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (language !== "id") {
-                      toggleLanguage();
-                    }
-                  }}
-                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${activeLanguage === "id" ? "bg-navy text-white" : "text-navy hover:bg-gray-50"}`}
-                >
-                  ID
-                </button>
-              </div>
-            </div>
+          <div data-aos="fade-up" className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
+              {copy.title[activeLanguage]}
+            </h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              {copy.subtitle[activeLanguage]}
+            </p>
           </div>
 
           <div
@@ -380,7 +356,8 @@ const Portfolio = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {projects.map((project, index) => {
-              const content = project.content[activeLanguage] ?? project.content.en;
+              const content =
+                project.content[activeLanguage] ?? project.content.en;
               return (
                 <button
                   key={project.id}
