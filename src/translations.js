@@ -98,9 +98,9 @@ export const translations = {
     },
     hero: {
       badge: "PT Mega Anugrah Utama",
-      title: "Mitra Terpercaya Anda dalam Logistik & Pengiriman Global",
+      title: "Jasa Forwarder Semarang & Solusi Logistik Global",
       description:
-        "Kami menyediakan solusi ekspor-impor yang disesuaikan, andal, dan hemat biaya. Dengan pengalaman luas di industri pengiriman, kami memastikan kargo Anda tiba di tujuan dengan aman dan tepat waktu—melalui darat, laut, atau udara.",
+        "MAUCargo menyediakan jasa forwarder Semarang terbaik untuk jasa ekspor impor Indonesia dan pengiriman kargo internasional. Layanan forwarding kargo laut Semarang, udara (Air Freight), dan LCL dengan harga kompetitif dan aman.",
       trust1: "Jaringan Global",
       trust2: "Penanganan Aman",
       trust3: "Hemat Biaya",
@@ -109,16 +109,16 @@ export const translations = {
     services: {
       title: "Layanan Kami",
       subtitle:
-        "Solusi logistik lengkap yang disesuaikan dengan kebutuhan Anda",
+        "Solusi logistik lengkap untuk jasa ekspor impor Indonesia dan pengiriman kargo internasional",
       oceanFreight: {
-        title: "Pengiriman Laut",
+        title: "Pengiriman Laut (Ocean Freight)",
         description:
-          "Layanan full container load (FCL) dan less than container load (LCL) ke seluruh dunia.",
+          "Layanan full container load (FCL) dan less than container load (LCL) untuk forwarding kargo laut Semarang ke seluruh dunia.",
       },
       airFreight: {
-        title: "Pengiriman Udara",
+        title: "Pengiriman Udara (Air Freight)",
         description:
-          "Transportasi udara yang cepat dan andal untuk pengiriman mendesak.",
+          "Transportasi udara yang cepat dan andal untuk pengiriman kargo internasional mendesak.",
       },
       landTransport: {
         title: "Transportasi Darat",
@@ -141,7 +141,7 @@ export const translations = {
     },
     whyChooseUs: {
       title: "Mengapa Memilih Kami",
-      subtitle: "Apa yang membuat kami berbeda",
+      subtitle: "Alasan memilih jasa forwarder Semarang terpercaya",
       experience: {
         title: "Tahun Pengalaman",
         description: "Lebih dari satu dekade keahlian di industri logistik.",
@@ -162,7 +162,7 @@ export const translations = {
     },
     contact: {
       title: "Hubungi Kami",
-      subtitle: "Siap mengirim? Hubungi kami hari ini",
+      subtitle: "Siap mengirim? Hubungi jasa forwarder Semarang hari ini",
       name: "Nama Anda",
       email: "Email Anda",
       message: "Pesan Anda",

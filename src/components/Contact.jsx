@@ -166,6 +166,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-accent transition-colors"
+                    title="Lihat lokasi kantor MAUCargo di Google Maps"
                   >
                     Jl. Catelya Garden No. 15 Banyumanik, Semarang, Central
                     Java, Indonesia
@@ -202,6 +203,7 @@ const Contact = () => {
                   <a
                     href="mailto:inquiry@maucargo.com"
                     className="text-gray-600 hover:text-accent transition-colors"
+                    title="Kirim email ke MAUCargo"
                   >
                     inquiry@maucargo.com
                   </a>

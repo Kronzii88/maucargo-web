@@ -197,19 +197,19 @@ const Hero = () => {
   const carouselImages = [
     {
       url: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
-      alt: "Ocean Freight",
+      alt: "Proses bongkar muat kontainer jasa forwarder Semarang MAUCargo",
     },
     {
       url: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
-      alt: "Air Freight",
+      alt: "Pengiriman kargo udara jasa forwarder Semarang MAUCargo",
     },
     {
       url: warehouseImage,
-      alt: "Warehouse/LCL",
+      alt: "Gudang dan layanan LCL jasa forwarder Semarang MAUCargo",
     },
     {
       url: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
-      alt: "Truck/Courier",
+      alt: "Transportasi darat jasa forwarder Semarang MAUCargo",
     },
   ];
 
@@ -276,6 +276,8 @@ const Hero = () => {
                 href="https://wa.me/6281234567890?text=Hello%20MAUCargo,%20I%20am%20interested%20in%20your%20forwarding%20services."
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Hubungi kami melalui WhatsApp"
+                aria-label="Hubungi kami melalui WhatsApp"
                 className="bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accentDark transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center lg:justify-start gap-2 w-full sm:w-auto"
               >
                 <MessageCircle size={24} aria-label="WhatsApp Icon" />

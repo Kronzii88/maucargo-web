@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
-import logo from '../assets/MAU BULAT.png';
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
+import logo from "../assets/MAU BULAT.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,23 +12,33 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: t('navbar.home'), href: '#home' },
-    { name: t('navbar.services'), href: '#services' },
-    { name: t('navbar.about'), href: '#whyus' },
-    { name: t('navbar.contact'), href: '#contact' },
+    { name: t("navbar.home"), href: "#home" },
+    { name: t("navbar.services"), href: "#services" },
+    { name: t("navbar.about"), href: "#whyus" },
+    { name: t("navbar.contact"), href: "#contact" },
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-navy/95 shadow-lg backdrop-blur-sm' : 'bg-navy'}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-navy/95 shadow-lg backdrop-blur-sm" : "bg-navy"}`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="flex items-center gap-3">
-            <img src={logo} alt="MAU Cargo" className="h-10 w-10 object-contain" />
+          <a
+            href="#home"
+            className="flex items-center gap-3"
+            title="Beranda MAUCargo"
+          >
+            <img
+              src={logo}
+              alt="Logo MAUCargo - Jasa Forwarder Semarang"
+              className="h-10 w-10 object-contain"
+            />
             <span className="text-2xl font-bold text-white">
               MAU<span className="text-accent">Cargo</span>
             </span>
@@ -40,6 +50,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className="text-gray-300 hover:text-white transition-colors duration-200"
+                title={link.name}
               >
                 {link.name}
               </a>
@@ -48,13 +59,14 @@ const Navbar = () => {
               onClick={toggleLanguage}
               className="text-white px-4 py-2 rounded-lg border border-white/30 hover:bg-white/10 transition-colors duration-200 font-medium"
             >
-              {language === 'en' ? 'ID' : 'EN'}
+              {language === "en" ? "ID" : "EN"}
             </button>
             <a
               href="#contact"
               className="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-accentDark transition-colors duration-200"
+              title="Hubungi Kami"
             >
-              {language === 'en' ? 'Get a Quote' : 'Dapatkan Penawaran'}
+              {language === "en" ? "Get a Quote" : "Dapatkan Penawaran"}
             </a>
           </div>
 
@@ -63,12 +75,12 @@ const Navbar = () => {
               onClick={toggleLanguage}
               className="text-white px-3 py-1 rounded border border-white/30 hover:bg-white/10 transition-colors font-medium"
             >
-              {language === 'en' ? 'ID' : 'EN'}
+              {language === "en" ? "ID" : "EN"}
             </button>
             <button
               className="text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -83,6 +95,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                  title={link.name}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -91,9 +104,10 @@ const Navbar = () => {
               <a
                 href="#contact"
                 className="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accentDark transition-colors duration-200 text-center"
+                title="Hubungi Kami"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {language === 'en' ? 'Get a Quote' : 'Dapatkan Penawaran'}
+                {language === "en" ? "Get a Quote" : "Dapatkan Penawaran"}
               </a>
             </div>
           </div>

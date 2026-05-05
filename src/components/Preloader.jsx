@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Plane } from "lucide-react";
+import { Ship } from "lucide-react";
 
 const Preloader = ({ onComplete }) => {
   const preloaderRef = useRef(null);
@@ -43,7 +43,7 @@ const Preloader = ({ onComplete }) => {
       .fromTo(
         lineRef.current,
         { scaleX: 0 },
-        { scaleX: 1, duration: 1.2, ease: "power3.inOut" },
+        { scaleX: 1, duration: 1.8, ease: "power3.inOut" },
         "-=0.2",
       )
       .fromTo(
@@ -92,15 +92,12 @@ const Preloader = ({ onComplete }) => {
         </div>
 
         <div className="relative w-48 sm:w-72">
-          <div
-            ref={lineRef}
-            className="h-1 bg-white/30 origin-left"
-          />
+          <div ref={lineRef} className="h-1 bg-white/30 origin-left" />
           <div
             ref={planeRef}
             className="absolute top-1/2 -translate-y-1/2 text-white"
           >
-            <Plane size={24} />
+            <Ship size={28} />
           </div>
         </div>
       </div>

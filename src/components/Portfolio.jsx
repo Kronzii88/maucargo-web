@@ -85,19 +85,19 @@ const Portfolio = () => {
         id: "industrial",
         cover: industrialImage,
         coverAlt:
-          "MAUCargo Success Story - Industrial Machinery Export to Germany",
+          "Kisah sukses MAUCargo - Ekspor mesin industri ke Jerman jasa forwarder Semarang",
         gallery: [
           {
             src: industrialImage,
-            alt: "MAUCargo Success Story - Industrial Machinery Export to Germany (1)",
+            alt: "Kisah sukses MAUCargo - Ekspor mesin industri ke Jerman jasa forwarder Semarang (1)",
           },
           {
             src: "https://source.unsplash.com/featured/1200x800/?industrial,machinery,shipping",
-            alt: "MAUCargo Success Story - Industrial Machinery Export to Germany (2)",
+            alt: "Kisah sukses MAUCargo - Ekspor mesin industri ke Jerman jasa forwarder Semarang (2)",
           },
           {
             src: "https://source.unsplash.com/featured/1200x800/?container,port,logistics",
-            alt: "MAUCargo Success Story - Industrial Machinery Export to Germany (3)",
+            alt: "Kisah sukses MAUCargo - Ekspor mesin industri ke Jerman jasa forwarder Semarang (3)",
           },
         ],
         content: {
@@ -143,19 +143,20 @@ const Portfolio = () => {
         id: "technology",
         cover:
           "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-        coverAlt: "MAUCargo Success Story - Tech Component Import from China",
+        coverAlt:
+          "Kisah sukses MAUCargo - Impor komponen teknologi dari China jasa forwarder Semarang",
         gallery: [
           {
             src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
-            alt: "MAUCargo Success Story - Tech Component Import from China (1)",
+            alt: "Kisah sukses MAUCargo - Impor komponen teknologi dari China jasa forwarder Semarang (1)",
           },
           {
             src: "https://source.unsplash.com/featured/1200x800/?air-cargo,freight,airport",
-            alt: "MAUCargo Success Story - Tech Component Import from China (2)",
+            alt: "Kisah sukses MAUCargo - Impor komponen teknologi dari China jasa forwarder Semarang (2)",
           },
           {
             src: "https://source.unsplash.com/featured/1200x800/?electronics,components,warehouse",
-            alt: "MAUCargo Success Story - Tech Component Import from China (3)",
+            alt: "Kisah sukses MAUCargo - Impor komponen teknologi dari China jasa forwarder Semarang (3)",
           },
         ],
         content: {
@@ -201,19 +202,20 @@ const Portfolio = () => {
         id: "sme",
         cover:
           "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=900&q=80",
-        coverAlt: "MAUCargo Success Story - FMCG Distribution to Middle East",
+        coverAlt:
+          "Kisah sukses MAUCargo - Distribusi FMCG ke Timur Tengah jasa forwarder Semarang",
         gallery: [
           {
             src: "https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&w=1200&q=80",
-            alt: "MAUCargo Success Story - FMCG Distribution to Middle East (1)",
+            alt: "Kisah sukses MAUCargo - Distribusi FMCG ke Timur Tengah jasa forwarder Semarang (1)",
           },
           {
             src: "https://source.unsplash.com/featured/1200x800/?fmcg,warehouse,logistics",
-            alt: "MAUCargo Success Story - FMCG Distribution to Middle East (2)",
+            alt: "Kisah sukses MAUCargo - Distribusi FMCG ke Timur Tengah jasa forwarder Semarang (2)",
           },
           {
             src: "https://source.unsplash.com/featured/1200x800/?shipping,containers,stack",
-            alt: "MAUCargo Success Story - FMCG Distribution to Middle East (3)",
+            alt: "Kisah sukses MAUCargo - Distribusi FMCG ke Timur Tengah jasa forwarder Semarang (3)",
           },
         ],
         content: {
@@ -370,7 +372,7 @@ const Portfolio = () => {
                   <div className="relative">
                     <img
                       src={project.cover}
-                      alt={`MAUCargo Success Story - ${content.title}`}
+                      alt={project.coverAlt}
                       className="w-full h-44 object-cover"
                       loading="lazy"
                     />
